@@ -4,6 +4,11 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /app
 
+# Install Node.js (LTS) and npm
+RUN apt-get update && \
+    apt-get install -y curl && \
+    curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -y nodejs
 
 # Ensure Python 3 + pip are explicitly installed and stable
 RUN apt-get update && \
