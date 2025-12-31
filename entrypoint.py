@@ -1,3 +1,11 @@
+import os
+from huggingface_hub import login
+
+hf_token = os.getenv("HUGGINGFACE_HUB_TOKEN")
+if hf_token:
+    login(token=hf_token)
+
+
 @app.on_event("startup")
 def load_model():
     global pipe
